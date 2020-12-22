@@ -43,6 +43,6 @@ gulp.task('serve', function () {
 });
 
 gulp.task('default', gulp.series(
-  'serve'
+  "build",'serve'
 ));
 
