@@ -15,5 +15,18 @@
   "bugs": {
     "url": "https://github.com/MikitheArtist/ui-modal/issues"
   },
-  "homepage": "https://github.com/MikitheArtist/ui-modal#readme"
+  "homepage": "https://github.com/MikitheArtist/ui-modal#readme",
+  "dependencies": {
+    "gulp": "^4.0.2"
+  },
+  "devDependencies": {
+    "browser-sync": "^2.26.13",
+    "del": "^6.0.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-debug": "^4.0.0",
+    "gulp-if": "^3.0.0",
+    "gulp-sass": "^4.1.0",
+    "gulp-sourcemap": "^1.0.1",
+    "gulp-sourcemaps": "^3.0.0"
+  }
 }
