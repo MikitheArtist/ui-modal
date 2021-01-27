@@ -19,10 +19,7 @@
     "url": "https://github.com/MikitheArtist/ui-modal/issues"
   },
   "homepage": "https://github.com/MikitheArtist/ui-modal#readme",
-  "dependencies": {
-    "gulp": "^4.0.2",
-    "gulp-babel": "^8.0.0"
-  },
+  "dependencies": {},
   "devDependencies": {
     "@babel/core": "^7.12.10",
     "@babel/plugin-proposal-class-properties": "^7.12.1",
@@ -32,6 +29,8 @@
     "browserify": "^17.0.0",
     "cross-env": "^7.0.3",
     "del": "^6.0.0",
+    "gulp": "^4.0.2",
+    "gulp-babel": "^8.0.0",
     "gulp-concat": "^2.6.1",
     "gulp-debug": "^4.0.0",
     "gulp-if": "^3.0.0",
