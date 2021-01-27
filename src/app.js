@@ -1,5 +1,4 @@
-import { ModalsProvider } from "./components/modal-provider";
-import { ConfirmationModal } from "./components/confirmation-modal";
+import { ModalsProvider, ConfirmationModal } from './components';
 
 const modalsProvider = new ModalsProvider({
   rootEl: document.getElementById('modalsContainer')

@@ -1,18 +1,18 @@
 
-export class Modal {  
+export class Modal {
   static count = 0;
 
   constructor({
     onExited = () => {},
     openClassName = 'modal_open',
     closeClassName = 'modal_close',
-    options: {
-      payload = {},
-      onModalResolved = () => {},
-      onModalRejected = () => {}
-    } = {},
-  }) {
+    disableAnimations = false,
+    payload = {},
+    onModalResolved = () => {},
+    onModalRejected = () => {}
+  } = {}) {
     this.id = ++Modal.count;
+    this.disableAnimations = disableAnimations;
     this.openClassName = openClassName;
     this.closeClassName = closeClassName;
     this.payload = payload;
@@ -22,7 +22,7 @@ export class Modal {
   }
 
   getModalEl() {
-    return document.querySelector(`[data-modal="${this.id}"]`);
+    return document.querySelector(`[data-modal='${this.id}']`);
   }
 
   openModal() {
@@ -34,9 +34,13 @@ export class Modal {
     this.getModalEl().classList.remove(this.openClassName);
     this.getModalEl().classList.add(this.closeClassName);
 
-    this.getModalEl().addEventListener('animationend', () => {
+    if (this.disableAnimations) {
       this.onExited(this.id);
-    });
+    } else {
+      this.getModalEl().addEventListener('animationend', () => {
+        this.onExited(this.id);
+      });
+    }
   }
 
   resolveModal(payload) {
