@@ -1,11 +1,12 @@
 {
   "name": "ui-modal",
   "version": "0.1.0",
-  "description": "",
-  "main": "src/app.js",
+  "description": "Lib for work manage modal windows",
+  "main": "index.js",
   "scripts": {
     "start": "gulp",
     "build": "cross-env NODE_ENV=production gulp build",
+    "build:lib": "gulp build:lib",
     "deploy": "gh-pages -d public"
   },
   "repository": {
@@ -19,7 +20,8 @@
   },
   "homepage": "https://github.com/MikitheArtist/ui-modal#readme",
   "dependencies": {
-    "gulp": "^4.0.2"
+    "gulp": "^4.0.2",
+    "gulp-babel": "^8.0.0"
   },
   "devDependencies": {
     "@babel/core": "^7.12.10",

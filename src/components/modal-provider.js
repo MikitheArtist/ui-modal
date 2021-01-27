@@ -4,20 +4,24 @@ export class ModalsProvider {
     this.rootEl = rootEl;
     this.openedModals = [];
   }
-  
+
   deleteModal(modalID) {
-    this.rootEl.querySelector(`[data-modal="${modalID}"]`)?.remove();
+    this.rootEl.querySelector(`[data-modal='${modalID}']`)?.remove();
   }
 
-  openModal(Modal, options) {
+  openModal(Modal, options = {}) {
     const modal = new Modal({
-      onExited: this.deleteModal.bind(this),
-      options
+      onExited: (modalID) => {
+        this.deleteModal(modalID);
+        options.onExited?.(modalID);
+      },
+
+      ...options
     });
 
     this.rootEl.insertAdjacentHTML('beforeend', modal.getHTML());
     modal.openModal();
-    
+
     return modal;
   }
 }
