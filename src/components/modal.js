@@ -19,6 +19,9 @@ export class Modal {
     this.onModalResolved = onModalResolved;
     this.onModalRejected = onModalRejected;
     this.onExited = onExited;
+
+    this.bindEvents();
+    console.log(this.id);
   }
 
   getModalEl() {
@@ -51,5 +54,16 @@ export class Modal {
   rejectModal(reason) {
     this.onModalRejected(reason);
     this.closeModal();
+  }
+
+  bindEvents() {
+    console.log(this.id);
+    document.addEventListener('click', ({ target }) => {
+      const modalId = target.closest(`[data-modal='${this.id}']`)?.dataset?.modal;
+      console.log(modalId);
+      if (modalId === this.id && target.closest('[data-modal-close]')) {
+        this.rejectModal();
+      }
+    });
   }
 }

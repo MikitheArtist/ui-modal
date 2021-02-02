@@ -9,10 +9,6 @@ export class ConfirmationModal extends Modal {
 
   bindEvents() {
     const actionsMap = {
-      cancel: () => {
-        this.rejectModal();
-      },
-
       ok: () => {
         this.resolveModal();
       }
@@ -31,7 +27,7 @@ export class ConfirmationModal extends Modal {
         <div class='modal-content'>
           <div class='modal-content__header'>
             <h2>${this.payload.title || 'Confirm?'}</h2>
-            <span data-action='cancel' class='close'>&times;</span>
+            <span data-modal-close class='close'>&times;</span>
           </div>
           <form class='modal-form'>
             <input
@@ -44,7 +40,7 @@ export class ConfirmationModal extends Modal {
             <button data-action='ok' class='button' title=''>
             ok
             </button>
-            <button data-action='cancel' class='button' title=''>
+            <button data-modal-close class='button' title=''>
               cancel
             </button>
           </div>
