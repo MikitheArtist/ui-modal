@@ -23,15 +23,17 @@ export class ConfirmationModal extends Modal {
 
   getHTML() {
     return `
-      <div data-modal=${this.id} class='modal-overlay'>
+      <div data-modal=${this.id} class='modal'>
+        <div class='modal-overlay'></div>
+
         <div class='modal-content'>
           <div class='modal-content__header'>
             <h2>${this.payload.title || 'Confirm?'}</h2>
             <span data-modal-close class='close'>&times;</span>
           </div>
-          <form class='modal-form'>
+          <form>
             <input
-              class='modal-form__input'
+              class='form-input'
               name='name'
               placeholder='Добавить имя списка...'
             />

@@ -20,7 +20,7 @@ export class Modal {
     this.onModalRejected = onModalRejected;
     this.onExited = onExited;
 
-    this.bindEvents();
+    this._bindEvents();
     console.log(this.id);
   }
 
@@ -56,10 +56,10 @@ export class Modal {
     this.closeModal();
   }
 
-  bindEvents() {
+  _bindEvents() {
     console.log(this.id);
     document.addEventListener('click', ({ target }) => {
-      const modalId = target.closest(`[data-modal='${this.id}']`)?.dataset?.modal;
+      const modalId = +target.closest(`[data-modal='${this.id}']`)?.dataset?.modal;
       console.log(modalId);
       if (modalId === this.id && target.closest('[data-modal-close]')) {
         this.rejectModal();
