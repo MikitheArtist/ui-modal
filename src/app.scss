@@ -71,14 +71,14 @@ body {
   }
 }
 
-form {
+.modal-form {
   display: flex;
   align-items: center;
   width: 100%;
   padding: 8px 24px;
   background: white;
 
-  .form-input {
+  &__input {
     flex-grow: 1;
     margin-right: 24px;
     box-sizing: border-box;

@@ -20,9 +20,13 @@ body {
   background: #cfcdab;
 }
 
+.modal {
+  z-index: 1000;
+}
+
 .modal-overlay {
+  z-index: -1;
   position: fixed;
-  z-index: 1;
   padding-top: 100px;
   left: 0;
   top: 0;
@@ -30,10 +34,10 @@ body {
   height: 100%;
   overflow: auto;
   background: rgba(0,0,0,0.6);
-  transition: all 0.8s ease 0s;
 }
 
 .modal-content {
+  z-index: 2;
   display: flex;
   flex-direction: column;
   max-width: 400px;
@@ -101,33 +105,51 @@ body {
 }
 
 .modal_open {
-  animation: zoomIn 0.4s;
+  & > .modal-overlay {
+    animation: fadeIn 0.4s;
+  }
+
+  & > .modal-content {
+    animation: zoomIn 0.4s;
+  }
 }
 
 .modal_close {
-  animation: zoomOut 0.4s;
+ & > modal-overlay {
+    animation: fadeOut 0.4s;
+  }
+
+ & > .modal-content {
+    animation: zoomOut 0.4s;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+  }
 }
 
 @keyframes zoomIn {
-  from {
-    top: -300px;
-    opacity: 0;
-  }
-
-  to {
-    top: 0;
-    opacity: 1;
-  }
+  0% { transform: scale(0); }
+  100% { transform: scale(1); }
 }
 
 @keyframes zoomOut {
-  from {
-    top: 0;
-    opacity: 1;
-  }
-
-  to {
-    top: -300px;
-    opacity: 0;
-  }
+  0% { transform: scale(1); }
+  100% { transform: scale(0); }
 }

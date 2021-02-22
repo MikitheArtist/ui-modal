@@ -31,9 +31,9 @@ export class ConfirmationModal extends Modal {
             <h2>${this.payload.title || 'Confirm?'}</h2>
             <span data-modal-close class='close'>&times;</span>
           </div>
-          <form>
+          <form class='modal-form'>
             <input
-              class='form-input'
+              class='modal-form__input'
               name='name'
               placeholder='Добавить имя списка...'
             />
