@@ -1,4 +1,4 @@
-import {Modal} from './modal';
+import {Modal} from '../modal/index';
 
 export class ConfirmationModal extends Modal {
   constructor(options) {
